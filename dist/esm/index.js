@@ -33,28 +33,54 @@ typeof SuppressedError === "function" ? SuppressedError : function (error, suppr
     return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
 
-var Button = function (_a) {
-    var text = _a.text, onClick = _a.onClick, _b = _a.variant, variant = _b === void 0 ? 'primary' : _b;
-    var baseStyle = {
-        padding: '10px 20px',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
-        fontSize: '16px',
-    };
-    var variantStyles = {
-        primary: {
-            backgroundColor: '#007bff',
-            color: 'white',
-        },
-        secondary: {
-            backgroundColor: '#6c757d',
-            color: 'white',
-        },
-    };
-    var style = __assign(__assign({}, baseStyle), variantStyles[variant]);
-    return (React.createElement("button", { style: style, onClick: onClick }, text));
+// CSS properties defined outside the component
+var modalContainerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'fixed',
+    inset: '0 0 0 0',
+    width: '100dvw',
+    height: '100dvh',
+    background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%)',
+    opacity: 0,
+    transition: 'all .22s ease-in-out',
+    transform: 'translateY(-100%)',
+    animation: 'none'
+};
+var modalContentStyle = {
+    width: '30%',
+    height: '20dvh',
+    padding: '2rem',
+    borderRadius: 'var(--radius)',
+    background: 'var(--white-color)',
+    cursor: 'pointer'
+};
+var titleStyle = {
+    fontWeight: 'bold',
+    fontSize: '1.25rem',
+    textAlign: 'center'
+};
+var highlightStyle = {
+    color: '#16a34a',
+    margin: '0 0.5rem'
+};
+var Modal = function (_a) {
+    var success = _a.success, closeModal = _a.closeModal, newUser = _a.newUser;
+    // Dynamic styles based on props
+    var dynamicContainerStyle = __assign(__assign({}, modalContainerStyle), { opacity: success ? 1 : 0, transform: success ? 'translateY(0)' : 'translateY(-100%)', animation: success ? 'fadeIn 0.45s ease-in-out forwards' : 'none' });
+    function ModalClick() {
+        closeModal();
+    }
+    return (React.createElement("div", { className: "modal-success-container ".concat(success ? 'show' : ''), style: dynamicContainerStyle },
+        React.createElement("div", { className: "modal-content flex align-center justify-center", "aria-labelledby": "modal-title", role: "dialog", "aria-modal": "true", onClick: function () { return ModalClick(); }, style: modalContentStyle },
+            React.createElement("p", { id: "modal-title", style: titleStyle },
+                "Add User ",
+                React.createElement("span", { style: highlightStyle },
+                    newUser.lastName,
+                    " ",
+                    newUser.firstName)))));
 };
 
-export { Button };
+export { Modal, highlightStyle, modalContainerStyle, modalContentStyle, titleStyle };
 //# sourceMappingURL=index.js.map

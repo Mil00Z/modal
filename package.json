@@ -1,6 +1,6 @@
 {
   "name": "aladin-ts-rc",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A React component library built with TypeScript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

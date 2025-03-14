@@ -1,10 +1,18 @@
 import React from 'react';
 
-interface ButtonProps {
-    text: string;
-    onClick?: () => void;
-    variant?: 'primary' | 'secondary';
+interface ModalProps {
+    success: boolean;
+    closeModal: Function;
+    newUser: {
+        firstName: string;
+        lastName: string;
+        [key: string]: any;
+    };
 }
-declare const Button: React.FC<ButtonProps>;
+declare const modalContainerStyle: React.CSSProperties;
+declare const modalContentStyle: React.CSSProperties;
+declare const titleStyle: React.CSSProperties;
+declare const highlightStyle: React.CSSProperties;
+declare const Modal: ({ success, closeModal, newUser }: ModalProps) => React.JSX.Element;
 
-export { Button, ButtonProps };
+export { Modal, ModalProps, highlightStyle, modalContainerStyle, modalContentStyle, titleStyle };
