@@ -44,7 +44,7 @@ var modalContainerStyle = {
     inset: '0 0 0 0',
     width: '100dvw',
     height: '100dvh',
-    background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%)',
+    background: 'linear-gradient(to bottom, rgba(0, 0, 0, .65) 0%, rgba(0, 0, 0, .65) 100%)',
     opacity: 0,
     transition: 'all .22s ease-in-out',
     transform: 'translateY(-100%)',
@@ -54,20 +54,27 @@ var modalContentStyle = {
     width: '30%',
     height: '20dvh',
     padding: '2rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 'var(--radius)',
     background: 'var(--white-color)',
-    position: 'relative',
+    position: 'relative'
 };
 var modalCloserStyle = {
     position: 'absolute',
     top: '-10px',
     right: '-10px',
-    fontSize: '1.15rem',
+    fontSize: '1.25rem',
     background: 'var(--white-color)',
     borderRadius: '50%',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    border: '1px solid rgb(0,0,0)'
 };
 var titleStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     fontWeight: 'bold',
     fontSize: '1.25rem',
     textAlign: 'center',
@@ -85,7 +92,7 @@ var Modal = function (_a) {
         closeModal();
     }
     return (React.createElement("div", { className: "modal-success-container ".concat(success ? 'show' : ''), style: dynamicContainerStyle },
-        React.createElement("div", { className: "modal-content flex align-center justify-center", "aria-labelledby": "modal-title", role: "dialog", "aria-modal": "true", style: modalContentStyle },
+        React.createElement("div", { className: "modal-content", "aria-labelledby": "modal-title", role: "dialog", "aria-modal": "true", style: modalContentStyle },
             React.createElement("p", { id: "modal-title", style: titleStyle },
                 "Added User : ",
                 React.createElement("span", { style: highlightStyle },
