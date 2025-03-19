@@ -6,7 +6,7 @@ export interface ModalProps {
   newUser: {
     firstName: string;
     lastName: string;
-    [key: string]: any; // Allow for additional properties if needed
+    [key: string]: any;
   };
 }
 
