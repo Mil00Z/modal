@@ -68,7 +68,7 @@ import {Modal} from './components/Modal';
 
 function App() {
 
-  const  [visibleModal, setVisibleModal] = useState<boolean>(false);
+  const  [visibleModal, setVisibleModal] = useState<boolean>(true);
 
   function closeModal() {
     setVisibleModal(false);
@@ -90,8 +90,8 @@ export default App
 ## 4.Props
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| success | boolean | false | Switch display or hidden modal |
-| closeModal | function | closeModal | Setter function for success |
+| success | boolean | true | Switch display or hidden modal |
+| closeModal | function | closeModal | Setter function for display Modal |
 | newUser | object | {firstName:"John",lastName:"Doe"}  | Exemple of datas to display |
 
 
@@ -113,7 +113,6 @@ touch mock.json
     />
   )
 ```
-
 
 ## License
 MIT
