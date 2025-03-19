@@ -32,19 +32,31 @@ export const modalContentStyle: React.CSSProperties = {
   padding: '2rem',
   borderRadius: 'var(--radius)',
   background: 'var(--white-color)',
-  cursor: 'pointer'
+  position: 'relative',
+};
+
+export const modalCloserStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: '-10px',
+  right: '-10px',
+  fontSize: '1.15rem',
+  background: 'var(--white-color)',
+  borderRadius: '50%',
+  cursor:'pointer'
 };
 
 export const titleStyle: React.CSSProperties = {
   fontWeight: 'bold',
   fontSize: '1.25rem',
-  textAlign: 'center'
+  textAlign: 'center',
+  color: 'rgb(0,0,0)'
 };
 
 export const highlightStyle: React.CSSProperties = {
   color: '#16a34a',
   margin: '0 0.5rem'
 };
+
 
 export const Modal = ({success, closeModal, newUser}: ModalProps) => {
   // Dynamic styles based on props
@@ -55,9 +67,11 @@ export const Modal = ({success, closeModal, newUser}: ModalProps) => {
     animation: success ? 'fadeIn 0.45s ease-in-out forwards' : 'none'
   };
 
+
   function ModalClick() {  
     closeModal();
   }
+
 
   return (
     <div 
@@ -69,11 +83,11 @@ export const Modal = ({success, closeModal, newUser}: ModalProps) => {
         aria-labelledby="modal-title" 
         role="dialog" 
         aria-modal="true" 
-        onClick={() => ModalClick()} 
         style={modalContentStyle}
       >
         <p id="modal-title" style={titleStyle}>
-          Add User <span style={highlightStyle}>{newUser.lastName} {newUser.firstName}</span>
+          Added User : <span style={highlightStyle}>{newUser.lastName} {newUser.firstName}</span>
+          <span className="closer" style={modalCloserStyle} onClick={(e) => ModalClick()}>❌</span> 
         </p>
       </div>
     </div>
