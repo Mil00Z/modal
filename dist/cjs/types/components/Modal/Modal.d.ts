@@ -10,6 +10,7 @@ export interface ModalProps {
 }
 export declare const modalContainerStyle: React.CSSProperties;
 export declare const modalContentStyle: React.CSSProperties;
+export declare const modalCloserStyle: React.CSSProperties;
 export declare const titleStyle: React.CSSProperties;
 export declare const highlightStyle: React.CSSProperties;
 export declare const Modal: ({ success, closeModal, newUser }: ModalProps) => React.JSX.Element;

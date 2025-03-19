@@ -54,12 +54,22 @@ var modalContentStyle = {
     padding: '2rem',
     borderRadius: 'var(--radius)',
     background: 'var(--white-color)',
+    position: 'relative',
+};
+var modalCloserStyle = {
+    position: 'absolute',
+    top: '-10px',
+    right: '-10px',
+    fontSize: '1.15rem',
+    background: 'var(--white-color)',
+    borderRadius: '50%',
     cursor: 'pointer'
 };
 var titleStyle = {
     fontWeight: 'bold',
     fontSize: '1.25rem',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'rgb(0,0,0)'
 };
 var highlightStyle = {
     color: '#16a34a',
@@ -73,14 +83,15 @@ var Modal = function (_a) {
         closeModal();
     }
     return (React.createElement("div", { className: "modal-success-container ".concat(success ? 'show' : ''), style: dynamicContainerStyle },
-        React.createElement("div", { className: "modal-content flex align-center justify-center", "aria-labelledby": "modal-title", role: "dialog", "aria-modal": "true", onClick: function () { return ModalClick(); }, style: modalContentStyle },
+        React.createElement("div", { className: "modal-content flex align-center justify-center", "aria-labelledby": "modal-title", role: "dialog", "aria-modal": "true", style: modalContentStyle },
             React.createElement("p", { id: "modal-title", style: titleStyle },
-                "Add User ",
+                "Added User : ",
                 React.createElement("span", { style: highlightStyle },
                     newUser.lastName,
                     " ",
-                    newUser.firstName)))));
+                    newUser.firstName),
+                React.createElement("span", { className: "closer", style: modalCloserStyle, onClick: function (e) { return ModalClick(); } }, "\u274C")))));
 };
 
-export { Modal, highlightStyle, modalContainerStyle, modalContentStyle, titleStyle };
+export { Modal, highlightStyle, modalCloserStyle, modalContainerStyle, modalContentStyle, titleStyle };
 //# sourceMappingURL=index.js.map
