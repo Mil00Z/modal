@@ -16,7 +16,7 @@ pnpm install milooz-modal-ts-rc
 ```json
 {
   "name": "milooz-modal-ts-rc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A React component library built with TypeScript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
