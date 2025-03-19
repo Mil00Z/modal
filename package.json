@@ -1,6 +1,6 @@
 {
   "name": "milooz-modal-ts-rc",
-  "version": "0.0.6",
+  "version": "0.0.2",
   "description": "A React component library built with TypeScript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

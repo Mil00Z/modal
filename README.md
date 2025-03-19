@@ -12,12 +12,11 @@ pnpm install milooz-modal-ts-rc
 
 ## 2.Settings
 
-#### package.json
-
+### Scripts, PeerDependencies
 ```json
 {
   "name": "milooz-modal-ts-rc",
-  "version": "0.0.6",
+  "version": "0.0.2",
   "description": "A React component library built with TypeScript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -60,28 +59,16 @@ pnpm install milooz-modal-ts-rc
 
 ## 3.Usage
 
-##### You can Create a Datas special folder in `myProject\src\` and put in some `.json` file to fetch (or use API to remplace current data Flow)
-
-#### Exemple
-```bash
-mkdir datas
-touch mock.json
-```
-
-#### Import Modal Component & Datas File if needed
-
+### Import Modal Component in JSX/TSX files
 ```jsx
 //App.tsx
 import { useState } from 'react';
 
 import {Modal} from './components/Modal';
 
-import mock from './datas/mock.json';
-
-
 function App() {
 
-  const  [visibleModal, setVisibleModal] = useState<boolean>(true);
+  const  [visibleModal, setVisibleModal] = useState<boolean>(false);
 
   function closeModal() {
     setVisibleModal(false);
@@ -89,20 +76,43 @@ function App() {
 
   return (
     <>
-      <Modal success={visibleModal} closeModal={() => {closeModal()}} newUser={mock[0]}/>
+        <Modal 
+          success={visibleModal} 
+          closeModal={() => {closeModal()}} 
+          newUser={{firstName:"John",lastName:"Doe"}}
+        />
     </>
   )
 }
 export default App
 ```
 
-## Props
-
+## 4.Props
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| success | boolean | true | Switch display or hidden modal |
+| success | boolean | false | Switch display or hidden modal |
 | closeModal | function | closeModal | Setter function for success |
-| newUser | array | mock[0] | First block of datas to display for example |
+| newUser | object | {firstName:"John",lastName:"Doe"}  | Exemple of datas to display |
+
+
+##### You can create a special Data file like `mock.json` & use in place of `newUser={mock[0]}` Props (or get some Datas from API)
+
+#### Exemple
+```bash
+touch mock.json
+```
+
+```jsx
+  import mock from './mock.json';
+
+  return (
+    <Modal 
+      success={visibleModal} 
+      closeModal={() => {closeModal()}} 
+      newUser={mock[0]}
+    />
+  )
+```
 
 
 ## License
