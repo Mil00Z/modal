@@ -1,70 +1,39 @@
-# My React Modal Plugin : milooz-modal-ts-rc
+# My Simple React Modal Plugin : milooz-modal-ts-rc
 
 A simple Modal Plugin for React applications.
 
-## 1.Installation
+[![forthebadge](https://forthebadge.com/images/badges/made-with-react.svg)](https://forthebadge.com) 
+
+[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com)
+
+
+
+
+## 🛒 1.Installation
 
 ```bash
+#Use your favorite package manager (pnpm,npm,...)
 npm install milooz-modal-ts-rc
   OR
 pnpm install milooz-modal-ts-rc
 ```
 
-## 2.Settings
+## 🎯 2.Settings
 
-### Scripts, PeerDependencies
-```json
-{
-  "name": "milooz-modal-ts-rc",
-  "version": "0.0.3",
-  "description": "A React component library built with TypeScript",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "files": [
-    "dist"
-  ],
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "react",
-    "typescript",
-    "component",
-    "ui"
-  ],
-  "author": "",
-  "license": "MIT",
-  "type": "module",
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "rollup": "^3.0.0",
-    "rollup-plugin-dts": "^5.0.0",
-    "typescript": "^5.0.0",
-    "tslib": "^2.3.1"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  }
-}
-```
+### Global Settings
+[package.json](https://github.com/Mil00Z/modal/blob/main/package.json)
 
-## 3.Usage
+## 📚 3.Usage
 
-### Import Modal Component in JSX/TSX files
-```jsx
+### Import `Modal` Component in JSX/TSX file
+```tsx
 //App.tsx
 import { useState } from 'react';
 
-import {Modal} from './components/Modal';
+import {Modal} from 'milooz-modal-ts-rc';
 
 function App() {
 
@@ -80,31 +49,33 @@ function App() {
           success={visibleModal} 
           closeModal={() => {closeModal()}} 
           newUser={{firstName:"John",lastName:"Doe"}}
-        />
+          />
     </>
   )
 }
 export default App
 ```
 
-## 4.Props
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| success | boolean | true | Switch display or hidden modal |
-| closeModal | function | closeModal | Setter function for display Modal |
-| newUser | object | {firstName:"John",lastName:"Doe"}  | Exemple of datas to display |
+## 💡 4.Props
+| Prop | Type | Default | Description | Required |
+|------|------|---------|-------------|----------|
+| success | boolean | true | Switch display or hidden modal | yes
+| closeModal | function | closeModal | Setter function for display Modal | yes
+| newUser | object | {firstName:"John",lastName:"Doe"}  | Exemple of data to display | yes
 
 
-##### You can create a special Data file like `mock.json` & use in place of `newUser={mock[0]}` Props (or get some Datas from API)
+You can create a special Data file like `mock.json` & use in React component like `newUser={mock[index]}`(or get some Data from APIs, DBs...)
 
 #### Exemple
 ```bash
+# create a local json data file
 touch mock.json
 ```
 
 ```jsx
   import mock from './mock.json';
 
+  // Display First row of data (mock[0])
   return (
     <Modal 
       success={visibleModal} 
@@ -114,5 +85,6 @@ touch mock.json
   )
 ```
 
-## License
-MIT
+## 📖 License
+[MIT](https://github.com/Mil00Z/modal/blob/main/LICENSE)
+
